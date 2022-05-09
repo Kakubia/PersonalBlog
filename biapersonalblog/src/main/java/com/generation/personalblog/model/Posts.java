@@ -10,23 +10,35 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+//transforma o objeto criado em uma tabela no banco de dados
 @Entity
+
+//dá um nome para a tabela no meu banco de dados
 @Table(name = "tb_posts")
 public class Posts {
-
+	
+	// define a coluna de id como chave primaria
 	@Id
+	// equivalente ao auto_increment no mysql
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	public long id;
 	
+	// define que o campo não pode ser vazio
 	@NotBlank
+	// define que o campo é obrigatório
+	@NotNull
+	
+	// define um numero minimo e maximo de caracteres no campo 
 	@Size(min = 5, max = 100, message = "O campo deve ter no mínimo 5 caracteres e no máximo 100 caracteres")
-	private String title;
+	public String title;
 	
 	@NotBlank
+	@NotNull
 	@Size(min = 10, max = 500, message = "O campo deve ter no mínimo 10 caracteres e no máximo 500 caracteres")
-	private String text;
+	public String text;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date = new java.sql.Date(System.currentTimeMillis());
