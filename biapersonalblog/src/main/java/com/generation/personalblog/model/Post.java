@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -13,12 +14,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 //transforma o objeto criado em uma tabela no banco de dados
 @Entity
 
 //dá um nome para a tabela no meu banco de dados
-@Table(name = "tb_posts")
-public class Posts {
+@Table(name = "tb_post")
+public class Post {
 	
 	// define a coluna de id como chave primaria
 	@Id
@@ -42,6 +45,11 @@ public class Posts {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date = new java.sql.Date(System.currentTimeMillis());
+	
+	@ManyToOne
+	@JsonIgnoreProperties("post")
+	
+	private Topic topic;
 
 	public long getId() {
 		return id;
@@ -74,6 +82,15 @@ public class Posts {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	public Topic getTopic() {
+		return topic;
+	}
+
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+	}
+
 	
 	
 }
