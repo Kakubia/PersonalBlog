@@ -11,5 +11,5 @@ import com.generation.personalblog.model.Topic;
 
 public interface TopicRepository extends JpaRepository<Topic, Long>{
 
-	public List<Topic> findAllByDescriptionContainingIgoreCase(String description);
+	public List<Topic> findAllByDescriptionContainingIgnoreCase(String description);
 }
