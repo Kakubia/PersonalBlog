@@ -2,6 +2,8 @@ package com.generation.personalblog.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,12 +45,12 @@ public class TopicController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Topic> post(@RequestBody Topic topic){
+	public ResponseEntity<Topic> post(@Valid @RequestBody Topic topic){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(topic));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Topic> put(@RequestBody Topic topic){
+	public ResponseEntity<Topic> put(@Valid @RequestBody Topic topic){
 		return ResponseEntity.ok(repository.save(topic));
 	}
 	
