@@ -41,7 +41,7 @@ public class TopicController {
 	
 	@GetMapping("/name/{name}")
 	public ResponseEntity<List<Topic>> getByName(@PathVariable String name){
-		return ResponseEntity.ok(repository.findAllByDescriptionContainingIgoreCase(name));
+		return ResponseEntity.ok(repository.findAllByDescriptionContainingIgnoreCase(name));
 	}
 	
 	@PostMapping
