@@ -1,4 +1,5 @@
-package com.generation.personalblog.repository;
+/*package com.generation.personalblog.repository;
+ 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -21,16 +22,18 @@ import com.generation.personalblog.model.User;
 /*indicando que a classe UsuarioRepositoryTest é uma classe de test, 
  * que vai rodar em uma porta aleatoria a cada teste realizado 
  */
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT) 
+//@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 
 /*cria uma instancia de testes, que define que o ciclo de vida do teste vai respeitar o 
 ciclo de vida da classe(será executado e resetado após o uso)
 */ 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS) 
+
+/*@TestInstance(TestInstance.Lifecycle.PER_CLASS) 
 
 public class UserRepositoryTest {
 	
-	@Autowired private UserRepository repository;
+	@Autowired 
+	private UserRepository repository;
 	
 	@BeforeAll
 	void start() {
@@ -45,19 +48,19 @@ public class UserRepositoryTest {
 
 	@Test
 	@DisplayName("Teste que retorna 1 usuario")
-	public void retornaUmUsuario() { 
+	public void returnOneUser() { 
 		Optional<User> user = repository.findByUser("isadora@gmail.com");
-        assertTrue(User.get().getUser().equals("isadora@gmail.com"));
+        assertTrue(user.get().getUser().equals("isadora@gmail.com"));
     }
 
 	@Test
 	@DisplayName("Teste que retorna 3 usuarios")
-	public void retornaTresUsuarios() {
-		List<User> listaDeUsuarios = repository.findAllByNameContainingIgnoreCase("Silva");
-		assertEquals(3, listaDeUsuarios.size());
-		assertTrue(listaDeUsuarios.get(0).getUser().equals("Maiar da Silva"));
-		assertTrue(listaDeUsuarios.get(1).getUser().equals("Brocco da Silva"));
-		assertTrue(listaDeUsuarios.get(2).getUser().equals("Rafael Silva"));
+	public void returnThreeUsers() {
+		List<User> usersList = repository.findAllByNameContainingIgnoreCase("Silva");
+		assertEquals(3, usersList.size());
+		assertTrue(usersList.get(0).getUser().equals("Maiar da Silva"));
+		assertTrue(usersList.get(1).getUser().equals("Brocco da Silva"));
+		assertTrue(usersList.get(2).getUser().equals("Rafael Silva"));
 	}
 	
     @AfterAll
@@ -65,3 +68,4 @@ public class UserRepositoryTest {
         repository.deleteAll();
     }
 }
+*/

@@ -48,8 +48,11 @@ public class Post {
 	
 	@ManyToOne
 	@JsonIgnoreProperties("post")
-	
 	private Topic topic;
+
+	@ManyToOne
+	@JsonIgnoreProperties("post")
+	private User user;
 
 	public long getId() {
 		return id;
@@ -89,6 +92,14 @@ public class Post {
 
 	public void setTopic(Topic topic) {
 		this.topic = topic;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	

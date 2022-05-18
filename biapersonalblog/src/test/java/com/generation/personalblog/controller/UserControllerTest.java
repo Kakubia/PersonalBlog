@@ -1,4 +1,4 @@
-package com.generation.personalblog.controller;
+/*package com.generation.personalblog.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.generation.personalblog.model.User;
+import com.generation.personalblog.repository.UserRepository;
 import com.generation.personalblog.service.UserService;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -32,6 +33,9 @@ public class UserControllerTest {
 
 	@Autowired
 	private UserService usuarioService;
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	@Test
 	@Order(1)
@@ -119,3 +123,4 @@ public class UserControllerTest {
 
 	}
 }
+*/

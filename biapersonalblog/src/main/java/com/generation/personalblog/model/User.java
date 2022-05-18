@@ -37,7 +37,21 @@ public class User {
 	private String photo;
 	
 	@OneToMany(mappedBy = "user" , cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("user") private List<Post> post;
+	@JsonIgnoreProperties("user") 
+	private List<Post> post;
+	
+	
+	
+	public User(Long id, String name, String user, String password, String photo) {
+		
+		this.id = id;
+		this.name = name;
+		this.user = user;
+		this.password = password;
+		this.photo = photo;
+	}
+	
+	public User() {};
 
 	public Long getId() {
 		return id;
@@ -85,5 +99,6 @@ public class User {
 
 	public void setPost(List<Post> post) {
 		this.post = post;
-	} 
+	}
+
 }
