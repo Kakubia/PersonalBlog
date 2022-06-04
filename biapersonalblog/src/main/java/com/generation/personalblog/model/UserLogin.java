@@ -12,6 +12,8 @@ public class UserLogin {
 	
 	private String photo;
 	
+	private String type;
+	
 	private String token;
 
 	public Long getId() {
@@ -52,6 +54,14 @@ public class UserLogin {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getToken() {
