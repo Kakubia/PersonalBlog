@@ -61,10 +61,12 @@ public class UserController {
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<User> put(@Valid @RequestBody User user){
-		user.setPassword(userService.encryptPassword(user.getPassword()));
-		return ResponseEntity.ok(userRepository.save(user));
-	}
+	public ResponseEntity<User> putUser(@Valid @RequestBody User user){
+		return userService.updateUser(user)
+				.map(resposta -> ResponseEntity.status(HttpStatus.OK).body(resposta))
+				.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+		}
+	
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable Long id) {
 		userRepository.deleteById(id);
